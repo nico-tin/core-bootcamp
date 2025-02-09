@@ -9,7 +9,7 @@ import {
   publicActions,
 } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
-// import { core } from "viem/chains";
+ import { core } from "viem/chains";
 import erfc20JsonArtifact from "./erc20-artifacts.json";
 
 const { abi } = erfc20JsonArtifact;
@@ -20,17 +20,17 @@ const account = privateKeyToAccount(`0x${privateKey}` as Hex);
 (async () => {
   const client = createWalletClient({
     account,
-    // chain: arbitrumSepolia,
+     chain: arbitrumSepolia,
     transport: http(process.env.API_URL),
   }).extend(publicActions);
 
-  // const hash = await client.deployContract({
-  //   abi,
-  //   bytecode: `0x${bin}`,
-  //   args: [127n],
-  // });
+   const hash = await client.deployContract({
+     abi,
+     bytecode: `0x${bin}`,
+     args: [127n],
+   });
 
-  // const { contractAddress } = await client.getTransactionReceipt({ hash });
+   const { contractAddress } = await client.getTransactionReceipt({ hash });
 
   const contractAddress = '0x600d4a8cf5caefdeca95592fbb1c48a0c5a75c7d';
 

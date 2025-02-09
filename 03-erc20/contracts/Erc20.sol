@@ -4,10 +4,10 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract NameYourToken is ERC20 {
     constructor(uint256 initialSupply) ERC20("NameYourToken", "NYT") {
-        // _mint(msg.sender, initialSupply);
+         _mint(msg.sender, initialSupply);
     }
 
     function generateTokens(address destination, uint256 amount) public {
-        // _mint(destination, amount);s
+         _mint(destination, amount);
     }
 }
